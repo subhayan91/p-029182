@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 import SidebarNavItem from "./SidebarNavItem";
 import SidebarNavSubItem from "./SidebarNavSubItem";
 import SidebarTopicItem from "./SidebarTopicItem";
@@ -49,6 +51,24 @@ export const Sidebar: React.FC = () => {
               + Create New Topic
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Added Auth Links */}
+      <div className="p-4 mt-4 border-t border-[rgba(234,236,240,1)]">
+        <div className="flex flex-col space-y-2">
+          <Link 
+            to="/login" 
+            className="text-[#253A82] hover:text-[#253A82]/80 font-medium text-sm"
+          >
+            Login
+          </Link>
+          <Link 
+            to="/signup" 
+            className="text-[#253A82] hover:text-[#253A82]/80 font-medium text-sm"
+          >
+            Sign Up
+          </Link>
         </div>
       </div>
     </div>
