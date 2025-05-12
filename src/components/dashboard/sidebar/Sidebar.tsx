@@ -1,11 +1,13 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SidebarNavItem from "./SidebarNavItem";
 import SidebarNavSubItem from "./SidebarNavSubItem";
 import SidebarTopicItem from "./SidebarTopicItem";
 
 export const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white min-w-60 min-h-[764px] w-[250px] border-[rgba(234,236,240,1)] border-r">
       <div className="w-full text-lg text-[rgba(37,58,130,1)] font-semibold leading-6 p-4 border-[rgba(234,236,240,1)] border-b">
@@ -36,8 +38,9 @@ export const Sidebar: React.FC = () => {
         <div>My Topics</div>
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c86fd5b38269c6cc5fae97153f0f3d551a8d49c?placeholderIfAbsent=true"
-          className="aspect-[1] object-contain w-5 shrink-0"
+          className="aspect-[1] object-contain w-5 shrink-0 cursor-pointer"
           alt="Add topic"
+          onClick={() => navigate('/create-topic')}
         />
       </div>
 
@@ -45,7 +48,10 @@ export const Sidebar: React.FC = () => {
         <SidebarTopicItem text="MARKETING" isActive={true} />
         <SidebarTopicItem text="CUSTOMERS" />
 
-        <div className="bg-[rgba(236,240,255,1)] self-center flex w-[218px] max-w-full items-center gap-2 text-sm text-[#253A82] font-medium text-center leading-none justify-center mt-2 px-4 py-1 rounded-lg">
+        <div 
+          className="bg-[rgba(236,240,255,1)] self-center flex w-[218px] max-w-full items-center gap-2 text-sm text-[#253A82] font-medium text-center leading-none justify-center mt-2 px-4 py-1 rounded-lg cursor-pointer"
+          onClick={() => navigate('/create-topic')}
+        >
           <div className="self-stretch flex w-full items-center gap-2 overflow-hidden flex-1 shrink basis-[0%] my-auto px-4 py-2">
             <div className="self-stretch w-full gap-3 flex-1 shrink basis-[0%] my-auto">
               + Create New Topic
