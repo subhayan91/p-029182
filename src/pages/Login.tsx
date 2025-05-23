@@ -15,9 +15,9 @@ const LoginPage: React.FC = () => {
         </div>
         <SignIn 
           path="/login" 
-          routing="path" // This is fine for SignIn as per Clerk docs for v5 path routing strategy
+          routing="path" 
           signUpUrl="/signup" 
-          signInForceRedirectUrl="/" // Use specific redirect after sign in
+          afterSignInUrl="/" // Corrected: Use afterSignInUrl for redirect after sign in
           appearance={{
             variables: {
               colorPrimary: '#253A82',
@@ -30,4 +30,3 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
-

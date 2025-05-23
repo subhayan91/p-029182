@@ -1,11 +1,8 @@
 
 import React from "react";
 import { SignUp } from "@clerk/clerk-react";
-// import { useNavigate } from "react-router-dom"; // No longer needed here
 
 const SignupPage: React.FC = () => {
-  // const navigate = useNavigate(); // No longer needed here
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[rgba(236,240,255,1)] p-4">
       <div className="w-full max-w-md">
@@ -19,8 +16,7 @@ const SignupPage: React.FC = () => {
         <SignUp 
           path="/signup" 
           signInUrl="/login" 
-          // forceRedirectUrl="/" // Replaced by signUpForceRedirectUrl for more specific control
-          signUpForceRedirectUrl="/create-organization" // Use specific redirect after sign up
+          afterSignUpUrl="/create-organization" // Corrected: Use afterSignUpUrl for redirect after sign up
           appearance={{
             variables: {
               colorPrimary: '#253A82',
@@ -33,4 +29,3 @@ const SignupPage: React.FC = () => {
 };
 
 export default SignupPage;
-
