@@ -1,7 +1,7 @@
 
 import React from "react";
 import { SignUp } from "@clerk/clerk-react";
-// import { useNavigate } from "react-router-dom"; // No longer needed here if Clerk handles redirect
+// import { useNavigate } from "react-router-dom"; // No longer needed here
 
 const SignupPage: React.FC = () => {
   // const navigate = useNavigate(); // No longer needed here
@@ -19,8 +19,8 @@ const SignupPage: React.FC = () => {
         <SignUp 
           path="/signup" 
           signInUrl="/login" 
-          forceRedirectUrl="/" // Fallback if afterSignUpUrl is not hit or if user directly navigates.
-          afterSignUpUrl="/create-organization" // Corrected: Must be a string
+          // forceRedirectUrl="/" // Replaced by signUpForceRedirectUrl for more specific control
+          signUpForceRedirectUrl="/create-organization" // Use specific redirect after sign up
           appearance={{
             variables: {
               colorPrimary: '#253A82',
@@ -33,3 +33,4 @@ const SignupPage: React.FC = () => {
 };
 
 export default SignupPage;
+
