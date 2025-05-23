@@ -1,10 +1,10 @@
 
 import React from "react";
 import { SignUp } from "@clerk/clerk-react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom"; // No longer needed here if Clerk handles redirect
 
 const SignupPage: React.FC = () => {
-  const navigate = useNavigate(); // Keep useNavigate for potential future use
+  // const navigate = useNavigate(); // No longer needed here
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[rgba(236,240,255,1)] p-4">
@@ -18,14 +18,9 @@ const SignupPage: React.FC = () => {
         </div>
         <SignUp 
           path="/signup" 
-          // routing="path" // routing prop is not recommended by Clerk for Vite projects
           signInUrl="/login" 
           forceRedirectUrl="/" // Fallback if afterSignUpUrl is not hit or if user directly navigates.
-          afterSignUpUrl={() => {
-            // Similar to CreateOrganizationPage, ensure this returns the target URL string.
-            // navigate('/create-organization'); // This call is okay if you want to ensure navigation happens.
-            return '/create-organization'; // This makes the prop correct.
-          }}
+          afterSignUpUrl="/create-organization" // Corrected: Must be a string
           appearance={{
             variables: {
               colorPrimary: '#253A82',
